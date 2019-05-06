@@ -1,0 +1,37 @@
+{
+  "name": "classrouter-openapi",
+  "version": "1.0.1",
+  "description": "classrouter Open API generation",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.lib.json",
+    "test": "mocha -r ts-node/register test/**.test.ts",
+    "prenpm2push": "npm run build",
+    "npm2push": "npm publish --access=public"
+  },
+  "author": "farcek@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@napp/reflect": "^1.2.4",
+    "@types/express": "^4.16.1",
+    "classrouter": "^4.2.2",
+    "express": "^4.16.4",
+    "inversify": "^5.0.1",
+    "path-to-regexp": "^3.0.0",
+    "reflect-metadata": "^0.1.13",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "mocha-typescript": "^1.1.17",
+    "source-map-support": "^0.5.12",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
