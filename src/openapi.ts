@@ -1,7 +1,6 @@
 import { Classtype, Rootmeta, ControllerMeta, ActionClassMeta, ActionMethodMeta, PropertyParamMeta, ArgumentParamMeta, MethodMeta, HttpMethod, Paramtype, ClassrouterFactory } from "classrouter";
 import { ReflectType, ReflectTypemeta, ReflectClassmeta } from "@napp/reflect";
 import { OpenAPI } from "./openapi.interface";
-const swaggerUi = require('swagger-ui-express');
 
 import { parse as UriTokenParser } from "path-to-regexp";
 import { OpenAPIDecorator } from "./decoders";
@@ -58,24 +57,14 @@ export class ClassrouterOpenAPI {
     }
 
 
-    build(app: any, version: string) {
+    build() {
         for (let n of (Object.keys(this.calssrouter.rootMetada.controllers))) {
             this.buildController(this.calssrouter.rootMetada.controllers[n], {});
         }
-        app.get(`/${version}/api.json`, this.buildExpressAction());
-        app.use(`/${version}/api-doc`, swaggerUi.serve, swaggerUi.setup(null, {
-            swaggerUrl: `/${version}/api.json`,
-            explorer: true,
-            swaggerOptions: {
-            }
-        }));
+        return this;
     }
 
-    buildExpressAction() {
-        return (req: any, res: any) => {
-            res.json(this.apiJson);
-        }
-    }
+
 
     private buildController(c: ControllerMeta, parantData: IParentData) {
         let secureName = ReflectClassmeta.Resolve(c.Controllerclass).attrGetClass(OpenAPIDecorator.$attrKey.security);

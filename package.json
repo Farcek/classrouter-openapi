@@ -1,6 +1,6 @@
 {
   "name": "classrouter-openapi",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "classrouter Open API generation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -24,8 +24,7 @@
     "express": "^4.16.4",
     "inversify": "^5.0.1",
     "path-to-regexp": "^3.0.0",
-    "reflect-metadata": "^0.1.13",
-    "swagger-ui-express": "^4.0.2"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
