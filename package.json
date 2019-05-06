@@ -12,6 +12,10 @@
     "npm2push": "npm publish --access=public"
   },
   "author": "farcek@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Farcek/classrouter-openapi.git"
+  },
   "license": "ISC",
   "dependencies": {
     "@napp/reflect": "^1.2.4",
