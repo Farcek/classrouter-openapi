@@ -24,7 +24,7 @@ class type2Schema {
     @test()
     @only
     testA() {
-        this.basicAPI.build({}, '/v1');
+        // this.basicAPI.build({}, '/v1');
         let json = JSON.stringify(this.basicAPI.apiJson, undefined, 4);
 
         const fs = require('fs');
