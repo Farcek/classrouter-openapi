@@ -1,6 +1,6 @@
 {
   "name": "classrouter-openapi",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "classrouter Open API generation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -8,8 +8,7 @@
     "tsc": "tsc -p tsconfig.json",
     "build": "tsc -p tsconfig.lib.json",
     "test": "mocha -r ts-node/register test/**.test.ts",
-    "prenpm2push": "npm run build",
-    "npm2push": "npm publish --access=public"
+    "prepublish": "npm run build"
   },
   "author": "farcek@gmail.com",
   "repository": {

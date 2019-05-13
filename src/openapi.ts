@@ -64,24 +64,30 @@ export class ClassrouterOpenAPI {
         return this;
     }
 
+    cloneParent(parantData: IParentData) {
+        return {
+            secureName: parantData.secureName
+        } as IParentData;
+    }
 
 
     private buildController(c: ControllerMeta, parantData: IParentData) {
         let secureName = ReflectClassmeta.Resolve(c.Controllerclass).attrGetClass(OpenAPIDecorator.$attrKey.security);
+        let childData = this.cloneParent(parantData);
         if (secureName) {
-            parantData.secureName = secureName;
+            childData.secureName = secureName;
         }
 
         for (let n of Object.keys(c.controllers)) {
             let m = c.controllers[n];
-            this.buildController(m, parantData);
+            this.buildController(m, childData);
         }
 
         for (let n of Object.keys(c.classActions)) {
-            this.buildClassaction(c.classActions[n], parantData);
+            this.buildClassaction(c.classActions[n], childData);
         }
         for (let n of Object.keys(c.methodActions)) {
-            this.buildMethodaction(c.methodActions[n], parantData);
+            this.buildMethodaction(c.methodActions[n], childData);
         }
     }
 
